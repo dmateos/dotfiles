@@ -2,13 +2,20 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/daniel/.oh-my-zsh
+case `uname` in
+  Darwin)
+    export ZSH=/Users/daniel/.oh-my-zsh
+  ;;
+  Linux)
+    export ZSH=/home/daniel/.oh-my-zsh
+  ;;
+esac
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="gentoo"
-ZSH_THEME="robbyrussell"
+#ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -86,6 +93,27 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #source /usr/local/share/chruby/chruby.sh
 alias vim=nvim
-export WORKON_HOME=$HOME/work/.virtualenvs
+export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Devel
-source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+
+case `uname` in
+  Darwin)
+    source /usr/local/bin/virtualenvwrapper.sh
+    directory_stack=/Users/daniel/.directory_stack
+  ;;
+  Linux)
+    source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+    directory_stack=/home/daniel/.directory_stack
+  ;;
+esac
+
+function pushdd() {
+    echo $(pwd) >> $directory_stack
+}
+
+function popdd() {
+    [ ! -s $directory_stack ] && return
+    newdir=$(sed -n '$p' $directory_stack)
+    sed -i -e '$d' $directory_stack
+    cd $newdir
+}
