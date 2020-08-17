@@ -7,7 +7,7 @@ case `uname` in
     export ZSH=/Users/daniel/.oh-my-zsh
   ;;
   Linux)
-    export ZSH=/home/daniel/.oh-my-zsh
+    export ZSH=~.oh-my-zsh
   ;;
 esac
 
@@ -103,7 +103,7 @@ case `uname` in
   ;;
   Linux)
     source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
-    directory_stack=/home/daniel/.directory_stack
+    directory_stack=~.directory_stack
   ;;
 esac
 
@@ -120,11 +120,11 @@ function popdd() {
 
 export HELM_HOST=:44134
 export TILLER_NAMESPACE=kube-system
-alias awsauth-j2="cd /home/daniel/work/jtwo/alinta/aws-azure-login/bin; ./index.js --no-prompt --profile jtwo --no-sandbox"
-alias awsauth-alinta-core="cd /home/daniel/work/jtwo/alinta/aws-azure-login/bin; ./index.js --no-prompt --profile core --no-sandbox"
-alias awsauth-alinta-musk="cd /home/daniel/work/jtwo/alinta/aws-azure-login/bin; ./index.js --no-prompt --profile musk --no-sandbox"
-alias awsauth-alinta-management="cd /home/daniel/work/jtwo/alinta/aws-azure-login/bin; ./index.js --no-prompt --profile management --no-sandbox"
-alias awsauth-alinta-dev="cd /home/daniel/work/jtwo/alinta/aws-azure-login/bin; ./index.js --no-prompt --profile mm-dev --no-sandbox"
+alias awsauth-j2="cd ~/work/jtwo/alinta/aws-azure-login/bin; ./index.js --no-prompt --profile jtwo --no-sandbox"
+alias awsauth-alinta-core="cd ~/work/jtwo/alinta/aws-azure-login/bin; ./index.js --no-prompt --profile core --no-sandbox"
+alias awsauth-alinta-musk="cd ~/work/jtwo/alinta/aws-azure-login/bin; ./index.js --no-prompt --profile musk --no-sandbox"
+alias awsauth-alinta-management="cd ~/work/jtwo/alinta/aws-azure-login/bin; ./index.js --no-prompt --profile management --no-sandbox"
+alias awsauth-alinta-dev="cd ~/work/jtwo/alinta/aws-azure-login/bin; ./index.js --no-prompt --profile mm-dev --no-sandbox"
 
 alias kubetesla="kubectl config use-context arn:aws:eks:ap-southeast-2:166972549022:cluster/tesla"
 alias kubeholden="kubectl config use-context arn:aws:eks:ap-southeast-2:307973494033:cluster/holden"
