@@ -124,11 +124,13 @@ alias awsauth-j2="cd /home/daniel/work/jtwo/alinta/aws-azure-login/bin; ./index.
 alias awsauth-alinta-core="cd /home/daniel/work/jtwo/alinta/aws-azure-login/bin; ./index.js --no-prompt --profile core --no-sandbox"
 alias awsauth-alinta-musk="cd /home/daniel/work/jtwo/alinta/aws-azure-login/bin; ./index.js --no-prompt --profile musk --no-sandbox"
 alias awsauth-alinta-management="cd /home/daniel/work/jtwo/alinta/aws-azure-login/bin; ./index.js --no-prompt --profile management --no-sandbox"
+alias awsauth-alinta-dev="cd /home/daniel/work/jtwo/alinta/aws-azure-login/bin; ./index.js --no-prompt --profile mm-dev --no-sandbox"
 
 alias kubetesla="kubectl config use-context arn:aws:eks:ap-southeast-2:166972549022:cluster/tesla"
 alias kubeholden="kubectl config use-context arn:aws:eks:ap-southeast-2:307973494033:cluster/holden"
 alias kubeford="kubectl config use-context arn:aws:eks:ap-southeast-2:307973494033:cluster/ford"
 alias kubetelnack="kubectl config use-context arn:aws:eks:ap-southeast-2:307973494033:cluster/telnack"
 alias kubemusk="kubectl config use-context arn:aws:eks:ap-southeast-2:321263155876:cluster/musk"
+alias kubefisker="kubectl config use-context arn:aws:eks:ap-southeast-2:321349407524:cluster/fisker"
 
 fortune | cowsay | lolcat
