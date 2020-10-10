@@ -7,7 +7,7 @@ case `uname` in
     export ZSH=/Users/daniel/.oh-my-zsh
   ;;
   Linux)
-    export ZSH=~.oh-my-zsh
+    export ZSH=/home/daniel/.oh-my-zsh
   ;;
 esac
 
@@ -103,7 +103,7 @@ case `uname` in
   ;;
   Linux)
     source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
-    directory_stack=~.directory_stack
+    directory_stack=/home/daniel/.directory_stack
   ;;
 esac
 
@@ -125,12 +125,14 @@ alias awsauth-alinta-core="cd ~/work/jtwo/alinta/aws-azure-login/bin; ./index.js
 alias awsauth-alinta-musk="cd ~/work/jtwo/alinta/aws-azure-login/bin; ./index.js --no-prompt --profile musk --no-sandbox"
 alias awsauth-alinta-management="cd ~/work/jtwo/alinta/aws-azure-login/bin; ./index.js --no-prompt --profile management --no-sandbox"
 alias awsauth-alinta-dev="cd ~/work/jtwo/alinta/aws-azure-login/bin; ./index.js --no-prompt --profile mm-dev --no-sandbox"
+alias awsauth-alinta-test="cd ~/work/jtwo/alinta/aws-azure-login/bin; ./index.js --no-prompt --profile mm-test --no-sandbox"
 
 alias kubetesla="kubectl config use-context arn:aws:eks:ap-southeast-2:166972549022:cluster/tesla"
 alias kubeholden="kubectl config use-context arn:aws:eks:ap-southeast-2:307973494033:cluster/holden"
+alias kubeferrari="kubectl config use-context arn:aws:eks:ap-southeast-2:307973494033:cluster/ferrari"
 alias kubeford="kubectl config use-context arn:aws:eks:ap-southeast-2:307973494033:cluster/ford"
 alias kubetelnack="kubectl config use-context arn:aws:eks:ap-southeast-2:307973494033:cluster/telnack"
 alias kubemusk="kubectl config use-context arn:aws:eks:ap-southeast-2:321263155876:cluster/musk"
 alias kubefisker="kubectl config use-context arn:aws:eks:ap-southeast-2:321349407524:cluster/fisker"
 
-fortune | cowsay | lolcat
+fortune | cowsay -b ~/dotfiles/bong.cow | lolcat
