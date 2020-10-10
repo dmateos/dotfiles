@@ -135,4 +135,4 @@ alias kubetelnack="kubectl config use-context arn:aws:eks:ap-southeast-2:3079734
 alias kubemusk="kubectl config use-context arn:aws:eks:ap-southeast-2:321263155876:cluster/musk"
 alias kubefisker="kubectl config use-context arn:aws:eks:ap-southeast-2:321349407524:cluster/fisker"
 
-fortune | cowsay -b ~/dotfiles/bong.cow | lolcat
+fortune | cowsay -f ~/dotfiles/bong.cow | lolcat
