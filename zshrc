@@ -134,5 +134,8 @@ alias kubeford="kubectl config use-context arn:aws:eks:ap-southeast-2:3079734940
 alias kubetelnack="kubectl config use-context arn:aws:eks:ap-southeast-2:307973494033:cluster/telnack"
 alias kubemusk="kubectl config use-context arn:aws:eks:ap-southeast-2:321263155876:cluster/musk"
 alias kubefisker="kubectl config use-context arn:aws:eks:ap-southeast-2:321349407524:cluster/fisker"
+alias kubemgmt="kubectl config use-context arn:aws:eks:ap-southeast-2:688775463618:cluster/management"
+
+alias kubecs="az aks get-credentials --resource-group cs-ae-rg-common --name cs-ae-aks-common --subscription 6ec61a38-33b4-4e76-905a-2adc7eb5f2f3"
 
 fortune | cowsay -f ~/dotfiles/bong.cow | lolcat
