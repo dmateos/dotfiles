@@ -7,6 +7,7 @@ ZSH_DISABLE_COMPFIX="true"
 case `uname` in
   Darwin)
     export ZSH=/Users/daniel/.oh-my-zsh
+    path=('/opt/homebrew/bin' $path)
   ;;
   Linux)
     export ZSH=/home/daniel/.oh-my-zsh
