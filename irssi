@@ -1,27 +1,22 @@
 servers = (
   {
-    address = "irc.ragingfist.net";
-    chatnet = "ragingfist";
-    port = "9999";
+    address = "irc.libera.chat";
+    chatnet = "libra";
+    port = "6697";
     autoconnect = "yes";
     use_ssl = "yes";
-  },
-  {
-    address = "irc.freenode.net";
-    chatnet = "freenode";
-    port = "6667";
-    autoconnect = "yes";
   }
 );
 
 chatnets = {
-  ragingfist = { type = "IRC"; };
-  freenode = { type = "IRC"; };
+  libra = { type = "IRC"; };
 };
 
 channels = (
-  { name = "#poisson"; chatnet = "ragingfist"; autojoin = "Yes"; },
-  { name = "#linux.conf.au"; chatnet = "freenode"; autojoin = "Yes"; }
+  { name = "#linux.conf.au"; chatnet = "libra"; autojoin = "Yes"; },
+  { name = "#linux"; chatnet = "libra"; autojoin = "Yes"; },
+  { name = "#python"; chatnet = "libra"; autojoin = "Yes"; }
+  { name = "#c"; chatnet = "libra"; autojoin = "Yes"; },
 );
  
 aliases = {
@@ -189,7 +184,7 @@ settings = {
   core = {
     real_name = "noone";
     user_name = "noone";
-    nick = "dman";
+    nick = "dmat";
   };
   "fe-text" = { actlist_sort = "refnum"; };
 };
