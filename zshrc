@@ -130,7 +130,9 @@ alias awsauth-alinta-musk="cd ~/work/jtwo/alinta/aws-azure-login/bin; ./index.js
 alias awsauth-alinta-management="cd ~/work/jtwo/alinta/aws-azure-login/bin; ./index.js --no-prompt --profile management --no-sandbox"
 alias awsauth-alinta-dev="cd ~/work/jtwo/alinta/aws-azure-login/bin; ./index.js --no-prompt --profile mm-dev --no-sandbox"
 alias awsauth-alinta-test="cd ~/work/jtwo/alinta/aws-azure-login/bin; ./index.js --no-prompt --profile mm-test --no-sandbox"
+alias awsauth-alinta-uat="cd ~/work/jtwo/alinta/aws-azure-login/bin; ./index.js --no-prompt --profile mm-uat --no-sandbox"
 alias awsauth-alinta-mmprod="cd ~/work/jtwo/alinta/aws-azure-login/bin; ./index.js --no-prompt --profile mm-prod --no-sandbox"
+alias awsauth-alinta-training="cd ~/work/jtwo/alinta/aws-azure-login/bin; ./index.js --no-prompt --profile mm-training --no-sandbox"
 
 alias kubetesla="kubectl config use-context arn:aws:eks:ap-southeast-2:166972549022:cluster/tesla"
 alias kubeholden="kubectl config use-context arn:aws:eks:ap-southeast-2:307973494033:cluster/holden"
@@ -140,6 +142,7 @@ alias kubetelnack="kubectl config use-context arn:aws:eks:ap-southeast-2:3079734
 alias kubemusk="kubectl config use-context arn:aws:eks:ap-southeast-2:321263155876:cluster/musk"
 alias kubefisker="kubectl config use-context arn:aws:eks:ap-southeast-2:321349407524:cluster/fisker"
 alias kubemgmt="kubectl config use-context arn:aws:eks:ap-southeast-2:688775463618:cluster/management"
+alias kubetraining="kubectl config use-context arn:aws:eks:ap-southeast-2:405083348655:cluster/sayer"
 
 alias kubecsd="az aks get-credentials --resource-group cs-ae-rg-common --name cs-ae-aks-common --subscription 6ec61a38-33b4-4e76-905a-2adc7eb5f2f3"
 alias kubecsp="az aks get-credentials --resource-group cs-ae-rg-common --name cs-ae-aks-prod --subscription 6ec61a38-33b4-4e76-905a-2adc7eb5f2f3"
