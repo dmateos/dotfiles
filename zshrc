@@ -146,5 +146,6 @@ alias kubetraining="kubectl config use-context arn:aws:eks:ap-southeast-2:405083
 
 alias kubecsd="az aks get-credentials --resource-group cs-ae-rg-common --name cs-ae-aks-common --subscription 6ec61a38-33b4-4e76-905a-2adc7eb5f2f3"
 alias kubecsp="az aks get-credentials --resource-group cs-ae-rg-common --name cs-ae-aks-prod --subscription 6ec61a38-33b4-4e76-905a-2adc7eb5f2f3"
+alias kubecsteld="az aks get-credentials --resource-group nonprod-telstra-cs-ae-rg --name nonprod-telstra-cs-ae-aks --subscription 6ec61a38-33b4-4e76-905a-2adc7eb5f2f3"
 
 fortune | cowsay -f ~/dotfiles/bong.cow | lolcat
