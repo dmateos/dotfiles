@@ -17,8 +17,8 @@ esac
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="gentoo"
-#ZSH_THEME="robbyrussell"
+#ZSH_THEME="gentoo"
+ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -149,3 +149,8 @@ alias kubecsp="az aks get-credentials --resource-group cs-ae-rg-common --name cs
 alias kubecsteld="az aks get-credentials --resource-group nonprod-telstra-cs-ae-rg --name nonprod-telstra-cs-ae-aks --subscription 6ec61a38-33b4-4e76-905a-2adc7eb5f2f3"
 
 fortune | cowsay -f ~/dotfiles/bong.cow | lolcat
+
+
+PROMPT="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
+PROMPT+=' %{$fg[blue]%}%~%{$reset_color%} $(git_prompt_info)'
+
