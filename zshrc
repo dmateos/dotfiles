@@ -122,6 +122,13 @@ function popdd() {
     cd $newdir
 }
 
+function awsenv() {
+  export AWS_ACCESS_KEY_ID=$(aws configure get aws_access_key_id --profile $1);
+  export AWS_SECRET_ACCESS_KEY=$(aws configure get aws_secret_access_key --profile $1);
+  export AWS_DEFAULT_REGION=$(aws configure get region --profile $1);
+  echo "$1 environment variables exported";
+}
+
 export HELM_HOST=:44134
 export TILLER_NAMESPACE=kube-system
 alias awsauth-j2="cd ~/work/jtwo/alinta/aws-azure-login/bin; ./index.js --no-prompt --profile jtwo --no-sandbox"
@@ -147,6 +154,7 @@ alias kubetraining="kubectl config use-context arn:aws:eks:ap-southeast-2:405083
 alias kubecsd="az aks get-credentials --resource-group cs-ae-rg-common --name cs-ae-aks-common --subscription 6ec61a38-33b4-4e76-905a-2adc7eb5f2f3"
 alias kubecsp="az aks get-credentials --resource-group cs-ae-rg-common --name cs-ae-aks-prod --subscription 6ec61a38-33b4-4e76-905a-2adc7eb5f2f3"
 alias kubecsteld="az aks get-credentials --resource-group nonprod-telstra-cs-ae-rg --name nonprod-telstra-cs-ae-aks --subscription 6ec61a38-33b4-4e76-905a-2adc7eb5f2f3"
+alias kubeawsnimbusdev="kubectl config use-context arn:aws:eks:ap-southeast-2:166972549022:cluster/nimbus-tmp"
 
 fortune | cowsay -f ~/dotfiles/bong.cow | lolcat
 
