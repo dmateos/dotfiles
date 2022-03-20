@@ -129,6 +129,12 @@ function awsenv() {
   echo "$1 environment variables exported";
 }
 
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+ eval "$(pyenv init -)"
+fi
+
 export HELM_HOST=:44134
 export TILLER_NAMESPACE=kube-system
 alias awsauth-j2="cd ~/work/jtwo/alinta/aws-azure-login/bin; ./index.js --no-prompt --profile jtwo --no-sandbox"
