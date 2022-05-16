@@ -164,4 +164,4 @@ alias kubecstelp="az aks get-credentials --resource-group prod-0-cs-ae-rg --name
 alias kubeawsnimbusdev="kubectl config use-context arn:aws:eks:ap-southeast-2:761249264205:cluster/apollo-dev-eks"
 
 fortune | cowsay -f ~/dotfiles/bong.cow | lolcat
-source /home/daniel/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
