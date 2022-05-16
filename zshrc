@@ -62,7 +62,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git bundler rake ruby ssh-agent rails aws bower tmux debian)
+plugins=(git bundler rake ruby ssh-agent rails aws bower tmux debian zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -132,7 +132,7 @@ function awsenv() {
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
- eval "$(pyenv init -)"
+ eval "$(pyenv init --path)"
 fi
 
 export HELM_HOST=:44134
@@ -160,11 +160,8 @@ alias kubetraining="kubectl config use-context arn:aws:eks:ap-southeast-2:405083
 alias kubecsd="az aks get-credentials --resource-group cs-ae-rg-common --name cs-ae-aks-common --subscription 6ec61a38-33b4-4e76-905a-2adc7eb5f2f3"
 alias kubecsp="az aks get-credentials --resource-group cs-ae-rg-common --name cs-ae-aks-prod --subscription 6ec61a38-33b4-4e76-905a-2adc7eb5f2f3"
 alias kubecsteld="az aks get-credentials --resource-group nonprod-telstra-cs-ae-rg --name nonprod-telstra-cs-ae-aks --subscription 6ec61a38-33b4-4e76-905a-2adc7eb5f2f3"
-alias kubeawsnimbusdev="kubectl config use-context arn:aws:eks:ap-southeast-2:166972549022:cluster/nimbus-tmp"
+alias kubecstelp="az aks get-credentials --resource-group prod-0-cs-ae-rg --name prod-0-cs-ae-aks --subscription 6ec61a38-33b4-4e76-905a-2adc7eb5f2f3"
+alias kubeawsnimbusdev="kubectl config use-context arn:aws:eks:ap-southeast-2:761249264205:cluster/apollo-dev-eks"
 
 fortune | cowsay -f ~/dotfiles/bong.cow | lolcat
-
-
-PROMPT="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
-PROMPT+=' %{$fg[blue]%}%~%{$reset_color%} $(git_prompt_info)'
-
+source /home/daniel/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
