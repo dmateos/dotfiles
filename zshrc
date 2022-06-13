@@ -159,8 +159,9 @@ alias kubetraining="kubectl config use-context arn:aws:eks:ap-southeast-2:405083
 
 alias kubecsd="az aks get-credentials --resource-group cs-ae-rg-common --name cs-ae-aks-common --subscription 6ec61a38-33b4-4e76-905a-2adc7eb5f2f3"
 alias kubecsp="az aks get-credentials --resource-group cs-ae-rg-common --name cs-ae-aks-prod --subscription 6ec61a38-33b4-4e76-905a-2adc7eb5f2f3"
-alias kubecsteld="az aks get-credentials --resource-group nonprod-telstra-cs-ae-rg --name nonprod-telstra-cs-ae-aks --subscription 6ec61a38-33b4-4e76-905a-2adc7eb5f2f3"
-alias kubecstelp="az aks get-credentials --resource-group prod-0-cs-ae-rg --name prod-0-cs-ae-aks --subscription 6ec61a38-33b4-4e76-905a-2adc7eb5f2f3"
+alias kubecsd="az aks get-credentials --resource-group nonprod-telstra-cs-ae-rg --name nonprod-telstra-cs-ae-aks --subscription 6ec61a38-33b4-4e76-905a-2adc7eb5f2f3"
+alias kubecsp="az aks get-credentials --resource-group prod-0-cs-ae-rg --name prod-0-cs-ae-aks --subscription 6ec61a38-33b4-4e76-905a-2adc7eb5f2f3"
+alias kubedem="az aks get-credentials --resource-group j2-test --name j2-test-non-prod-kubernetes-cluster --subscription 6cd1942f-e571-4a87-87af-095ab69e23b5"
 alias kubeawsnimbusdev="kubectl config use-context arn:aws:eks:ap-southeast-2:761249264205:cluster/apollo-dev-eks"
 
 fortune | cowsay -f ~/dotfiles/bong.cow | lolcat
