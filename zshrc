@@ -166,3 +166,4 @@ alias kubeawsnimbusdev="kubectl config use-context arn:aws:eks:ap-southeast-2:76
 
 fortune | cowsay -f ~/dotfiles/bong.cow | lolcat
 source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
