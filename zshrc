@@ -144,6 +144,7 @@ alias awsauth-alinta-management="cd ~/work/jtwo/alinta/aws-azure-login/bin; ./in
 alias awsauth-alinta-dev="cd ~/work/jtwo/alinta/aws-azure-login/bin; ./index.js --no-prompt --profile mm-dev --no-sandbox"
 alias awsauth-alinta-test="cd ~/work/jtwo/alinta/aws-azure-login/bin; ./index.js --no-prompt --profile mm-test --no-sandbox"
 alias awsauth-alinta-uat="cd ~/work/jtwo/alinta/aws-azure-login/bin; ./index.js --no-prompt --profile mm-uat --no-sandbox"
+alias awsauth-alinta-uat2="cd ~/work/jtwo/alinta/aws-azure-login/bin; ./index.js --no-prompt --profile mm-uat2 --no-sandbox"
 alias awsauth-alinta-mmprod="cd ~/work/jtwo/alinta/aws-azure-login/bin; ./index.js --no-prompt --profile mm-prod --no-sandbox"
 alias awsauth-alinta-training="cd ~/work/jtwo/alinta/aws-azure-login/bin; ./index.js --no-prompt --profile mm-training --no-sandbox"
 
@@ -154,16 +155,20 @@ alias kubeford="kubectl config use-context arn:aws:eks:ap-southeast-2:3079734940
 alias kubetelnack="kubectl config use-context arn:aws:eks:ap-southeast-2:307973494033:cluster/telnack"
 alias kubemusk="kubectl config use-context arn:aws:eks:ap-southeast-2:321263155876:cluster/musk"
 alias kubefisker="kubectl config use-context arn:aws:eks:ap-southeast-2:321349407524:cluster/fisker"
+alias kubeearl="kubectl config use-context arn:aws:eks:ap-southeast-2:760694178318:cluster/earl"
 alias kubemgmt="kubectl config use-context arn:aws:eks:ap-southeast-2:688775463618:cluster/management"
 alias kubetraining="kubectl config use-context arn:aws:eks:ap-southeast-2:405083348655:cluster/sayer"
 
-alias kubecsd="az aks get-credentials --resource-group cs-ae-rg-common --name cs-ae-aks-common --subscription 6ec61a38-33b4-4e76-905a-2adc7eb5f2f3"
-alias kubecsp="az aks get-credentials --resource-group cs-ae-rg-common --name cs-ae-aks-prod --subscription 6ec61a38-33b4-4e76-905a-2adc7eb5f2f3"
-alias kubecsd="az aks get-credentials --resource-group nonprod-telstra-cs-ae-rg --name nonprod-telstra-cs-ae-aks --subscription 6ec61a38-33b4-4e76-905a-2adc7eb5f2f3"
-alias kubecsp="az aks get-credentials --resource-group prod-0-cs-ae-rg --name prod-0-cs-ae-aks --subscription 6ec61a38-33b4-4e76-905a-2adc7eb5f2f3"
+alias kubecsd="az aks get-credentials --resource-group cs-ae-rg-common --name cs-ae-aks-common --subscription 6ec61a38-33b4-4e76-905a-2adc7eb5f2f3"; KENV=telstra-master
+alias kubecsp="az aks get-credentials --resource-group cs-ae-rg-common --name cs-ae-aks-prod --subscription 6ec61a38-33b4-4e76-905a-2adc7eb5f2f3"; KENV=csprod0
+alias kubecsd="az aks get-credentials --resource-group nonprod-telstra-cs-ae-rg --name nonprod-telstra-cs-ae-aks --subscription 6ec61a38-33b4-4e76-905a-2adc7eb5f2f3"; KENV=telstra-master
+alias kubecsp="az aks get-credentials --resource-group prod-0-cs-ae-rg --name prod-0-cs-ae-aks --subscription 6ec61a38-33b4-4e76-905a-2adc7eb5f2f3"; KENV=csprod0
 alias kubedem="az aks get-credentials --resource-group j2-test --name j2-test-non-prod-kubernetes-cluster --subscription 6cd1942f-e571-4a87-87af-095ab69e23b5"
+alias kubecsuk="az aks get-credentials --resource-group prod-0-cs-uks-rg --name prod-0-cs-uks-aks --subscription 6ec61a38-33b4-4e76-905a-2adc7eb5f2f3"; KENV=csproduk0
 alias kubeawsnimbusdev="kubectl config use-context arn:aws:eks:ap-southeast-2:761249264205:cluster/apollo-dev-eks"
 
 fortune | cowsay -f ~/dotfiles/bong.cow | lolcat
+
 source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+source "$HOME/.cargo/env"
