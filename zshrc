@@ -132,7 +132,8 @@ function awsenv() {
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
- eval "$(pyenv init --path)"
+ eval "$(pyenv init -)"
+ eval "$(pyenv virtualenv-init -)"
 fi
 
 export HELM_HOST=:44134
@@ -159,9 +160,9 @@ alias kubeearl="kubectl config use-context arn:aws:eks:ap-southeast-2:7606941783
 alias kubemgmt="kubectl config use-context arn:aws:eks:ap-southeast-2:688775463618:cluster/management"
 alias kubetraining="kubectl config use-context arn:aws:eks:ap-southeast-2:405083348655:cluster/sayer"
 
-alias kubecsd="az aks get-credentials --resource-group cs-ae-rg-common --name cs-ae-aks-common --subscription 6ec61a38-33b4-4e76-905a-2adc7eb5f2f3"; KENV=telstra-master
 alias kubecsp="az aks get-credentials --resource-group cs-ae-rg-common --name cs-ae-aks-prod --subscription 6ec61a38-33b4-4e76-905a-2adc7eb5f2f3"; KENV=csprod0
 alias kubecsd="az aks get-credentials --resource-group nonprod-telstra-cs-ae-rg --name nonprod-telstra-cs-ae-aks --subscription 6ec61a38-33b4-4e76-905a-2adc7eb5f2f3"; KENV=telstra-master
+alias kubecsd1="az aks get-credentials --resource-group nonprod-telstra-cs-ae-rg --name nonprod-telstra-cs-ae-aks --subscription 6ec61a38-33b4-4e76-905a-2adc7eb5f2f3"; KENV=csdev1
 alias kubecsp="az aks get-credentials --resource-group prod-0-cs-ae-rg --name prod-0-cs-ae-aks --subscription 6ec61a38-33b4-4e76-905a-2adc7eb5f2f3"; KENV=csprod0
 alias kubedem="az aks get-credentials --resource-group j2-test --name j2-test-non-prod-kubernetes-cluster --subscription 6cd1942f-e571-4a87-87af-095ab69e23b5"
 alias kubecsuk="az aks get-credentials --resource-group prod-0-cs-uks-rg --name prod-0-cs-uks-aks --subscription 6ec61a38-33b4-4e76-905a-2adc7eb5f2f3"; KENV=csproduk0
