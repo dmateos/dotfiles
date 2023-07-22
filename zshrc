@@ -20,6 +20,9 @@ esac
 #ZSH_THEME="gentoo"
 ZSH_THEME="robbyrussell"
 
+HISTSIZE=999999999
+SAVEHIST=$HISTSIZE
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -172,3 +175,4 @@ fortune | cowsay -f ~/dotfiles/bong.cow | lolcat
 
 source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+source /Users/daniel/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
