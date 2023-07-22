@@ -20,9 +20,6 @@ esac
 #ZSH_THEME="gentoo"
 ZSH_THEME="robbyrussell"
 
-HISTSIZE=999999999
-SAVEHIST=$HISTSIZE
-
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -141,6 +138,10 @@ fi
 
 export HELM_HOST=:44134
 export TILLER_NAMESPACE=kube-system
+
+HISTSIZE=999999999
+SAVEHIST=$HISTSIZE
+
 alias awsauth-j2="cd ~/work/jtwo/alinta/aws-azure-login/bin; ./index.js --no-prompt --profile jtwo --no-sandbox"
 alias awsauth-alinta-core="cd ~/work/jtwo/alinta/aws-azure-login/bin; ./index.js --no-prompt --profile core --no-sandbox"
 alias awsauth-alinta-musk="cd ~/work/jtwo/alinta/aws-azure-login/bin; ./index.js --no-prompt --profile musk --no-sandbox"
