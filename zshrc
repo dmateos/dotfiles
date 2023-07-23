@@ -176,4 +176,3 @@ fortune | cowsay -f ~/dotfiles/bong.cow | lolcat
 
 source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
-source /Users/daniel/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
