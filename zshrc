@@ -171,8 +171,9 @@ alias kubecsp="az aks get-credentials --resource-group prod-0-cs-ae-rg --name pr
 alias kubedem="az aks get-credentials --resource-group j2-test --name j2-test-non-prod-kubernetes-cluster --subscription 6cd1942f-e571-4a87-87af-095ab69e23b5"
 alias kubecsuk="az aks get-credentials --resource-group prod-0-cs-uks-rg --name prod-0-cs-uks-aks --subscription 6ec61a38-33b4-4e76-905a-2adc7eb5f2f3"; KENV=csproduk0
 alias kubeawsnimbusdev="kubectl config use-context arn:aws:eks:ap-southeast-2:761249264205:cluster/apollo-dev-eks"
+alias kubej2="az aks get-credentials --resource-group prod-0-j2-ae-rg --name prod-0-j2-ae-aks --subscription 6cd1942f-e571-4a87-87af-095ab69e23b5"; 
 
 fortune | cowsay -f ~/dotfiles/bong.cow | lolcat
 
 source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+export PATH="/opt/homebrew/opt/openjdk/bin:/usr/local/share/dotnet/sdk:$PATH"
