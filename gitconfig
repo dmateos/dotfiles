@@ -13,13 +13,20 @@
 [core]
     excludesFile = ~/.gitignore
 
+[credential "https://git-codecommit.ap-southeast-2.amazonaws.com/v1/repos/repo-skyve-infra"]
+             helper = 
+             helper = !aws --profile dew-appsharedservices codecommit credential-helper $@
+             UseHttpPath = true
 [credential "https://git-codecommit.ap-southeast-2.amazonaws.com/v1/repos/lssa-data-exchange-layer"]
+             helper = 
              helper = !aws --profile dew-appsharedservices codecommit credential-helper $@
              UseHttpPath = true
 [credential "https://git-codecommit.ap-southeast-2.amazonaws.com/v1/repos/MyRepo2"]
+             helper = 
              helper = !aws --profile jtwo codecommit credential-helper $@
              UseHttpPath = true
 [credential "https://git-codecommit.ap-southeast-2.amazonaws.com/v1/repos/dew-erpnext"]
+             helper = 
              helper = !aws --profile dew-appsharedservices codecommit credential-helper $@
              UseHttpPath = true
 [pull]
