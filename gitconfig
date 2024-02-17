@@ -29,6 +29,10 @@
              helper = 
              helper = !aws --profile jtwo codecommit credential-helper $@
              UseHttpPath = true
+[credential "https://git-codecommit.ap-southeast-2.amazonaws.com/v1/repos/pastoral-poc-react"]
+             helper = 
+             helper = !aws --profile jtwo codecommit credential-helper $@
+             UseHttpPath = true
 [credential "https://git-codecommit.ap-southeast-2.amazonaws.com/v1/repos/pastoral-poc-amplify"]
              helper = 
              helper = !aws --profile jtwo codecommit credential-helper $@
