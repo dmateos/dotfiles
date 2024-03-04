@@ -21,6 +21,10 @@
              helper = 
              helper = !aws --profile dew-appsharedservices codecommit credential-helper $@
              UseHttpPath = true
+[credential "https://git-codecommit.ap-southeast-2.amazonaws.com/v1/repos/tabs2_infra"]
+             helper = 
+             helper = !aws --profile dew-appsharedservices codecommit credential-helper $@
+             UseHttpPath = true
 [credential "https://git-codecommit.ap-southeast-2.amazonaws.com/v1/repos/MyRepo2"]
              helper = 
              helper = !aws --profile jtwo codecommit credential-helper $@
