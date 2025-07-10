@@ -179,3 +179,4 @@ fortune | cowsay -f ~/dotfiles/bong.cow | lolcat
 
 source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export PATH="/opt/homebrew/opt/openjdk/bin:/usr/local/share/dotnet/sdk:$PATH"
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
