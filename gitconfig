@@ -12,6 +12,7 @@
     enabled = true
 [core]
     excludesFile = ~/.gitignore
+	fileMode = true
 
 [credential "https://git-codecommit.ap-southeast-2.amazonaws.com/v1/repos/repo-skyve-infra"]
              helper = 
