@@ -1,0 +1,24 @@
+clipboard-read = allow
+clipboard-write = allow
+copy-on-select = clipboard
+
+window-theme = system
+window-height = 42
+window-width = 140
+window-padding-x = 10
+window-padding-y = 3
+
+macos-option-as-alt = true
+keybind = alt+left=unbind
+keybind = alt+right=unbind
+
+macos-titlebar-style = "transparent"
+#macos-non-native-fullscreen = true
+macos-titlebar-proxy-icon = hidden
+
+font-family = Menlo
+font-size = 12
+bold-is-bright = true
+font-thicken = true
+
+theme = abernathy

@@ -183,8 +183,11 @@ alias kubedem="az aks get-credentials --resource-group dem-rg-seismicarchive-aue
 
 fortune | cowsay -f ~/dotfiles/bong.cow | lolcat
 
+. "$HOME/.cargo/env"
+
 source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export PATH="/opt/homebrew/opt/openjdk/bin:/usr/local/share/dotnet/sdk:$PATH:$HOME/.local/bin:$PATH"
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

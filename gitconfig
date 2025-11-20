@@ -13,6 +13,7 @@
 [core]
     excludesFile = ~/.gitignore
 	autocrlf = input
+	fileMode = true
 
 [credential "https://git-codecommit.ap-southeast-2.amazonaws.com/v1/repos/repo-skyve-infra"]
              helper = 
