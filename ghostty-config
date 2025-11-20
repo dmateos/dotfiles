@@ -22,3 +22,4 @@ bold-is-bright = true
 font-thicken = true
 
 theme = abernathy
+shell-integration-features = ssh-terminfo,ssh-env
