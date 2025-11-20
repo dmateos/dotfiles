@@ -12,55 +12,8 @@
     enabled = true
 [core]
     excludesFile = ~/.gitignore
-	autocrlf = input
-	fileMode = true
+	  autocrlf = input
+	  fileMode = true
 
-[credential "https://git-codecommit.ap-southeast-2.amazonaws.com/v1/repos/repo-skyve-infra"]
-             helper = 
-             helper = !aws --profile dew-appsharedservices codecommit credential-helper $@
-             UseHttpPath = true
-[credential "https://git-codecommit.ap-southeast-2.amazonaws.com/v1/repos/lssa-data-exchange-layer"]
-             helper = 
-             helper = !aws --profile dew-appsharedservices codecommit credential-helper $@
-             UseHttpPath = true
-[credential "https://git-codecommit.ap-southeast-2.amazonaws.com/v1/repos/tabs2_infra"]
-             helper = 
-             helper = !aws --profile dew-appsharedservices codecommit credential-helper $@
-             UseHttpPath = true
-[credential "https://git-codecommit.ap-southeast-2.amazonaws.com/v1/repos/j2-erpnext"]
-             helper = 
-             helper = !aws --profile jtwo codecommit credential-helper $@
-             UseHttpPath = true
-[credential "https://git-codecommit.ap-southeast-2.amazonaws.com/v1/repos/pastoral-poc-nextjs"]
-             helper = 
-             helper = !aws --profile jtwo codecommit credential-helper $@
-             UseHttpPath = true
-[credential "https://git-codecommit.ap-southeast-2.amazonaws.com/v1/repos/pastoral-poc-react"]
-             helper = 
-             helper = !aws --profile jtwo codecommit credential-helper $@
-             UseHttpPath = true
-[credential "https://git-codecommit.ap-southeast-2.amazonaws.com/v1/repos/pastoral-poc-amplify"]
-             helper = 
-             helper = !aws --profile jtwo codecommit credential-helper $@
-             UseHttpPath = true
-[credential "https://git-codecommit.ap-southeast-2.amazonaws.com/v1/repos/dew-erpnext"]
-             helper = 
-             helper = !aws --profile dew-appsharedservices codecommit credential-helper $@
-             UseHttpPath = true
-[credential "https://git-codecommit.ap-southeast-2.amazonaws.com/v1/repos/erpnext_infra"]
-             helper = 
-             helper = !aws --profile dew-appsharedservices codecommit credential-helper $@
-             UseHttpPath = true
-[credential "https://git-codecommit.ap-southeast-2.amazonaws.com/v1/repos/erpnext"]
-             helper = 
-             helper = !aws --profile dew-appsharedservices codecommit credential-helper $@
-             UseHttpPath = true
-[credential "https://git-codecommit.ap-southeast-2.amazonaws.com/v1/repos/erpnext_custom"]
-             helper = 
-             helper = !aws --profile dew-appsharedservices codecommit credential-helper $@
-             UseHttpPath = true
-[credential "https://git-codecommit.ap-southeast-2.amazonaws.com/v1/repos/repo-skyve-infra"]
-             helper = !aws --profile dew-appsharedservices codecommit credential-helper $@
-             UseHttpPath = true
 [pull]
 	rebase = false
