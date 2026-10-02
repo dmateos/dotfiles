@@ -55,6 +55,9 @@ if (( $+commands[fzf] )); then
   export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
 fi
 
+# atuin owns Ctrl-R (replaces fzf's history widget); up-arrow left as normal
+(( $+commands[atuin] )) && eval "$(atuin init zsh --disable-up-arrow)"
+
 # Python: uv manages interpreters and venvs
 (( $+commands[uv] )) && eval "$(uv generate-shell-completion zsh)"
 

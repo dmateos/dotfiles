@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+# Pick a project dir with fzf and switch to (or create) a tmux session for it.
+# Search roots (dir:depth) can be overridden with TMUX_SESSIONIZER_PATHS="dir1:1 dir2:2".
+set -euo pipefail
+
+if [[ $# -eq 1 ]]; then
+  selected=$1
+else
+  read -ra roots <<< "${TMUX_SESSIONIZER_PATHS:-$HOME/src:1 $HOME/work:2}"
+  selected=$(
+    {
+      echo "$HOME/dotfiles"
+      for r in "${roots[@]}"; do
+        dir=${r%:*} depth=${r##*:}
+        if [[ -d $dir ]]; then find "$dir/" -mindepth 1 -maxdepth "$depth" -type d -not -name '.*' -not -name lost+found 2>/dev/null || true; fi
+      done
+    } | sed "s|//|/|; s|^$HOME|~|" | sort -u | fzf --prompt 'session> ' --reverse
+  ) || exit 0
+  selected=${selected/#\~/$HOME}
+fi
+
+name=$(basename "$selected" | tr '.:' '__')
+
+if ! tmux has-session -t "=$name" 2>/dev/null; then
+  tmux new-session -ds "$name" -c "$selected"
+fi
+
+if [[ -n ${TMUX:-} ]]; then
+  tmux switch-client -t "=$name"
+else
+  tmux attach-session -t "=$name"
+fi

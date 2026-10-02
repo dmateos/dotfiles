@@ -30,10 +30,20 @@ clone https://github.com/romkatv/powerlevel10k.git           "$ZSH_CUSTOM/themes
 clone https://github.com/zsh-users/zsh-autosuggestions.git   "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
 clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME/zsh-syntax-highlighting"
 
+# tmux plugin manager
+clone https://github.com/tmux-plugins/tpm.git                "$HOME/.tmux/plugins/tpm"
+
 link zshrc         "$HOME/.zshrc"
 link p10k.zsh        "$HOME/.p10k.zsh"
 link tmux.conf       "$HOME/.tmux.conf"
 link gitconfig       "$HOME/.gitconfig"
 link gitignore_global "$HOME/.config/git/ignore"
 link ghostty-config  "$HOME/.config/ghostty/config"
+link bin/tmux-sessionizer "$HOME/.local/bin/tmux-sessionizer"
 link irssi           "$HOME/.irssi/config"
+
+# Install tmux plugins listed in tmux.conf (needs the links above)
+tmux new-session -ds tpm-install
+tmux source-file "$HOME/.tmux.conf"
+"$HOME/.tmux/plugins/tpm/bin/install_plugins" >/dev/null || echo "tmux plugins: run prefix+I inside tmux"
+tmux kill-session -t tpm-install
