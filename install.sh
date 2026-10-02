@@ -40,6 +40,7 @@ link gitconfig       "$HOME/.gitconfig"
 link gitignore_global "$HOME/.config/git/ignore"
 link ghostty-config  "$HOME/.config/ghostty/config"
 link bin/tmux-sessionizer "$HOME/.local/bin/tmux-sessionizer"
+link bin/tmux-sysinfo     "$HOME/.local/bin/tmux-sysinfo"
 link irssi           "$HOME/.irssi/config"
 
 # Install tmux plugins listed in tmux.conf (needs the links above)

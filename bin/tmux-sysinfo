@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# Load average and used memory for the tmux status bar, e.g. "0.42 · 31%".
+# Turns red when load exceeds the CPU count or memory use is over 90%.
+case $(uname) in
+  Linux)
+    read -r load _ < /proc/loadavg
+    cpus=$(nproc)
+    mem=$(awk '/^MemTotal/ {t=$2} /^MemAvailable/ {a=$2} END {printf "%d", (t-a)*100/t}' /proc/meminfo)
+    ;;
+  Darwin)
+    load=$(sysctl -n vm.loadavg | awk '{print $2}')
+    cpus=$(sysctl -n hw.ncpu)
+    total=$(sysctl -n hw.memsize)
+    mem=$(vm_stat | awk -v total="$total" '
+      /page size of/ {ps=$8}
+      /Pages free/ {f=$3} /Pages inactive/ {i=$3} /Pages speculative/ {s=$3}
+      END {printf "%d", (total - (f+i+s)*ps)*100/total}')
+    ;;
+esac
+
+hot='#[fg=colour203]' cool='#[fg=colour244]'
+load_c=$cool mem_c=$cool
+awk -v l="$load" -v c="$cpus" 'BEGIN {exit !(l > c)}' && load_c=$hot
+(( mem > 90 )) && mem_c=$hot
+printf '%s%s #[fg=colour240]· %s%s%%' "$load_c" "$load" "$mem_c" "$mem"
