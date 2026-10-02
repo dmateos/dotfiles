@@ -2,18 +2,17 @@
 	name = Daniel Mateos
 	email = daniel@mateos.cc
 [color]
-  ui = auto
+	ui = auto
 [push]
-  default = upstream
+	default = upstream
 	autoSetupRemote = true
 [format]
-    pretty = format:%C(blue)%h%C(reset) - %s %C(green)- %an%C(reset) %C(blue)(%ar)%C(reset)
+	pretty = format:%C(blue)%h%C(reset) - %s %C(green)- %an%C(reset) %C(blue)(%ar)%C(reset)
 [rerere]
-    enabled = true
+	enabled = true
 [core]
-    excludesFile = ~/.gitignore
-	  autocrlf = input
-	  fileMode = true
-
+	excludesFile = ~/.config/git/ignore
+	autocrlf = input
+	fileMode = true
 [pull]
 	rebase = false

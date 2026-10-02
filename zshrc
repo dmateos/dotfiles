@@ -1,3 +1,5 @@
+fortune | cowsay -f ~/dotfiles/bong.cow | lolcat
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -10,14 +12,20 @@ fi
 
 ZSH_DISABLE_COMPFIX="true"
 
+# Keep $PATH entries unique
+typeset -U path
+
 # Path to your oh-my-zsh installation.
+export ZSH=$HOME/.oh-my-zsh
 case `uname` in
   Darwin)
-    export ZSH=/Users/daniel/.oh-my-zsh
-    path=('/opt/homebrew/bin' $path)
-  ;;
-  Linux)
-    export ZSH=/home/daniel/.oh-my-zsh
+    path=(
+      /opt/homebrew/bin
+      /opt/homebrew/opt/openjdk/bin
+      /opt/homebrew/opt/libpq/bin
+      /usr/local/share/dotnet/sdk
+      $path
+    )
   ;;
 esac
 
@@ -111,13 +119,12 @@ case `uname` in
   Darwin)
     VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
     source /usr/local/bin/virtualenvwrapper.sh
-    directory_stack=/Users/daniel/.directory_stack
   ;;
   Linux)
     source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
-    directory_stack=/home/daniel/.directory_stack
   ;;
 esac
+directory_stack=$HOME/.directory_stack
 
 function pushdd() {
     echo $(pwd) >> $directory_stack
@@ -144,19 +151,15 @@ if command -v pyenv 1>/dev/null 2>&1; then
  eval "$(pyenv virtualenv-init -)"
 fi
 
-export HELM_HOST=:44134
-export TILLER_NAMESPACE=kube-system
-
 HISTSIZE=999999999
 SAVEHIST=$HISTSIZE
 
-fortune | cowsay -f ~/dotfiles/bong.cow | lolcat
-
 . "$HOME/.cargo/env"
 
-source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-export PATH="/opt/homebrew/opt/openjdk/bin:/usr/local/share/dotnet/sdk:$PATH:$HOME/.local/bin:$PATH"
-export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+path+=($HOME/.local/bin)
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Must be sourced last
+source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
