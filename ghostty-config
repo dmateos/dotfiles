@@ -21,5 +21,5 @@ font-size = 12
 bold-is-bright = true
 font-thicken = true
 
-theme = abernathy
+theme = Abernathy
 shell-integration-features = ssh-terminfo,ssh-env

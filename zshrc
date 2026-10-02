@@ -1,4 +1,4 @@
-fortune | cowsay -f ~/dotfiles/bong.cow | lolcat
+(( $+commands[fortune] && $+commands[cowsay] && $+commands[lolcat] )) && fortune | cowsay -f ~/dotfiles/bong.cow | lolcat
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -7,16 +7,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-ZSH_DISABLE_COMPFIX="true"
-
 # Keep $PATH entries unique
 typeset -U path
 
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+path=($HOME/.local/bin $path)
 case `uname` in
   Darwin)
     path=(
@@ -28,102 +22,48 @@ case `uname` in
     )
   ;;
 esac
+[[ -f $HOME/.cargo/env ]] && . "$HOME/.cargo/env"
 
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-#ZSH_THEME="gentoo"
-#ZSH_THEME="robbyrussell"
+# oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
+ZSH_DISABLE_COMPFIX="true"
 ZSH_THEME="powerlevel10k/powerlevel10k"
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git bundler rake ruby ssh-agent rails aws bower tmux debian zsh-autosuggestions)
-
+plugins=(git ssh-agent aws zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
+# History
+HISTSIZE=999999999
+SAVEHIST=$HISTSIZE
+setopt SHARE_HISTORY EXTENDED_HISTORY HIST_IGNORE_ALL_DUPS HIST_REDUCE_BLANKS
 
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-#source /usr/local/share/chruby/chruby.sh
+export EDITOR=nvim
+export VISUAL=nvim
 alias vim=nvim
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/Devel
 
-case `uname` in
-  Darwin)
-    VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-    source /usr/local/bin/virtualenvwrapper.sh
-  ;;
-  Linux)
-    source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
-  ;;
-esac
+# Debian ships bat and fd under different names
+(( $+commands[batcat] && ! $+commands[bat] )) && alias bat=batcat
+(( $+commands[fdfind] && ! $+commands[fd] )) && alias fd=fdfind
+(( $+commands[eza] )) && alias ls='eza --group-directories-first'
+
+if (( $+commands[fzf] )); then
+  source <(fzf --zsh)
+  if (( $+commands[fd] )); then
+    export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git'
+  elif (( $+commands[fdfind] )); then
+    export FZF_DEFAULT_COMMAND='fdfind --type f --hidden --exclude .git'
+  fi
+  export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
+fi
+
+# Python: uv manages interpreters and venvs
+(( $+commands[uv] )) && eval "$(uv generate-shell-completion zsh)"
+
+# Activate a venv from ~/.virtualenvs (left over from virtualenvwrapper)
+export WORKON_HOME=$HOME/.virtualenvs
+function workon() {
+  source "$WORKON_HOME/$1/bin/activate"
+}
+
 directory_stack=$HOME/.directory_stack
 
 function pushdd() {
@@ -138,25 +78,13 @@ function popdd() {
 }
 
 function awsenv() {
-  export AWS_ACCESS_KEY_ID=$(aws configure get aws_access_key_id --profile $1);
-  export AWS_SECRET_ACCESS_KEY=$(aws configure get aws_secret_access_key --profile $1);
-  export AWS_DEFAULT_REGION=$(aws configure get region --profile $1);
-  echo "$1 environment variables exported";
+  unset AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY AWS_SESSION_TOKEN
+  export AWS_PROFILE=$1
+  echo "AWS_PROFILE=$1"
 }
 
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-if command -v pyenv 1>/dev/null 2>&1; then
- eval "$(pyenv init -)"
- eval "$(pyenv virtualenv-init -)"
-fi
-
-HISTSIZE=999999999
-SAVEHIST=$HISTSIZE
-
-. "$HOME/.cargo/env"
-
-path+=($HOME/.local/bin)
+# Machine-specific config and secrets (untracked)
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

@@ -10,9 +10,24 @@
 	pretty = format:%C(blue)%h%C(reset) - %s %C(green)- %an%C(reset) %C(blue)(%ar)%C(reset)
 [rerere]
 	enabled = true
+	autoUpdate = true
 [core]
 	excludesFile = ~/.config/git/ignore
 	autocrlf = input
 	fileMode = true
 [pull]
-	rebase = false
+	rebase = true
+[rebase]
+	autoStash = true
+[init]
+	defaultBranch = main
+[fetch]
+	prune = true
+[diff]
+	algorithm = histogram
+[merge]
+	conflictStyle = zdiff3
+[branch]
+	sort = -committerdate
+[column]
+	ui = auto
