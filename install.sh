@@ -3,6 +3,15 @@
 set -euo pipefail
 DOTFILES="$(cd "$(dirname "$0")" && pwd)"
 
+clone() {
+  local repo="$1" dest="$2"
+  if [[ -d "$dest" ]]; then
+    echo "exists $dest"
+  else
+    git clone --depth=1 "$repo" "$dest"
+  fi
+}
+
 link() {
   local src="$DOTFILES/$1" dest="$2"
   mkdir -p "$(dirname "$dest")"
@@ -14,7 +23,14 @@ link() {
   echo "linked $dest -> $src"
 }
 
-link zshrc           "$HOME/.zshrc"
+# zsh dependencies the zshrc expects
+ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
+clone https://github.com/ohmyzsh/ohmyzsh.git                 "$HOME/.oh-my-zsh"
+clone https://github.com/romkatv/powerlevel10k.git           "$ZSH_CUSTOM/themes/powerlevel10k"
+clone https://github.com/zsh-users/zsh-autosuggestions.git   "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
+clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME/zsh-syntax-highlighting"
+
+link zshrc         "$HOME/.zshrc"
 link p10k.zsh        "$HOME/.p10k.zsh"
 link tmux.conf       "$HOME/.tmux.conf"
 link gitconfig       "$HOME/.gitconfig"

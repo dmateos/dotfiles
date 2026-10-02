@@ -9,16 +9,13 @@ git clone <this repo> ~/dotfiles
 ~/dotfiles/install.sh
 ```
 
-`install.sh` symlinks each file into place and backs up any existing real file to `*.bak`.
+`install.sh` clones oh-my-zsh, powerlevel10k, zsh-autosuggestions and zsh-syntax-highlighting if missing, then symlinks each file into place and backs up any existing real file to `*.bak`. It is safe to re-run.
 
 Machine-specific settings and secrets go in `~/.zshrc.local`, which is sourced if it exists and is not tracked.
 
 ## Dependencies
 
-- [oh-my-zsh](https://ohmyz.sh) with the custom theme/plugin
-  [powerlevel10k](https://github.com/romkatv/powerlevel10k) and
-  [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) in `~/.oh-my-zsh/custom/`
-- [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) cloned to `~/zsh-syntax-highlighting`
+- zsh and git (the zsh plugins are installed by `install.sh`)
 - [uv](https://docs.astral.sh/uv/) for Python
 - fzf, eza, bat, fd (Debian: `apt install fzf eza bat fd-find`)
 - neovim, tmux, fortune, cowsay, lolcat
